@@ -1,0 +1,57 @@
+<?php
+
+class TabStat
+{
+  protected $legende;
+  protected $entete;
+  protected $donnees;
+  protected $total;
+
+  public function __construct($legende, $ent1, $ent2, $ent3) {
+    $this->legende = $legende;
+    $this->entete = array($ent1, $ent2, $ent3);
+    $this->donnees = array();
+  }
+
+  public function ajoute($ch, $nb) {
+    $this->donnees[$ch] = $nb;
+  }
+  
+  private function calcule() {
+    $this->total = array_sum($this->donnees);
+  }
+
+  public function genere() {
+    $this->calcule();
+    $this->genereEntete();
+    $this->genereCorps();
+    $this->genereFin();
+  }
+
+  private function genereEntete() {
+    echo "<table>";
+    echo "<tr><th colspan='3'>" . $this->legende . "</th></tr>";
+    echo "<tr>";
+
+    foreach ($this->entete as $ent)
+      echo "<th>$ent</th>";
+
+    echo "</tr>";
+  }
+
+  private function genereCorps() {
+    foreach ($this->donnees as $cle=>$val) {
+      echo "<tr>";
+      echo "<td>" . $cle . "</td>";
+      echo "<td>" . $val . "</td>";
+      echo "<td>" . ($val * 100) / $this->total . "%</td>";
+      echo "</tr>";
+    }
+  }
+
+  private function genereFin() {
+    echo "</table>";
+  }
+}
+
+?>

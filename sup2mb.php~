@@ -1,0 +1,52 @@
+<?php
+include('tools.php');
+require 'rb.phar';
+R::setup('mysql:host=localhost;dbname=racurl','racurluser','racurlpwd');
+R::debug (TRUE, 1);
+?>
+
+<?php
+function existe($id) {
+	$m = R::load('membres', $id);
+	if ($m->id == 0)
+		return false;
+	else
+		return true;
+}
+
+function supprimerMembre($id) {
+	$m = R::load('membres', $id);
+	R::trash($m);
+	echo "Le membre portant l'ID" . $id . "a été correctement supprimé";
+}
+
+function lienArriere() {
+	echo "<a href='adm.php'>Retour</a>";
+}
+
+function afficheErreur($erreur)
+{
+echo <<<ERR
+<div class="erreur"> $erreur </div>
+ERR;
+}
+?>
+
+<?php
+if (!isset($_SESSION['pseudo']))
+    header('Location: index.php');
+else {
+	enteteTitreHTML('Supprimer un membre');
+	$id = $_POST['id'];
+	if (existe($id) == false) {
+		$erreur = "Il n'y a pas de membre sous cet id";
+		afficheErreur($erreur);
+		lienArriere();
+	}
+	else {
+		supprimerMembre($id);
+		lienArriere();
+	}
+	finHTML();		
+}		
+?>

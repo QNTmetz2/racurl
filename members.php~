@@ -1,0 +1,39 @@
+<?php
+include('tools.php');
+require_once('config.php');
+
+
+function genereFormulaire()
+{
+echo <<<ADM
+<form method="GET" action="$_SERVER[PHP_SELF]" name="formulaire">
+	<input type="radio" name="action" value="visu"/>
+		Visualiser les membres
+		<br>
+	<input type="radio" name="action" value="modif"/>
+		Modifier un membre
+		<br>
+	<input type="radio" name="action" value="sup"/>
+		Supprimer un membre
+		<br>
+	<input type="submit" name="C'est parti !" />
+	<input type="hidden" name="fromform" />
+</form>
+ADM;
+}
+
+
+enteteTitreHTML('Administration de la table membres');
+if (isset($_GET['fromform'])) {
+	if ($_GET['action'] == 'visu')
+		header('Location: visumb.php');
+	else if ($_GET['action'] == 'modif')
+		header('Location: modifmb.php');
+	else if ($_GET['action'] == 'sup')
+		header('Location: supmb.php');
+}
+else
+	genereFormulaire();
+
+finHTML();
+?>

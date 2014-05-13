@@ -1,0 +1,61 @@
+<?php
+include('tools.php');
+require 'rb.phar';
+R::setup('mysql:host=localhost;dbname=racurl','racurluser','racurlpwd');
+R::debug (TRUE, 1);
+?>
+
+<?php
+function genereFormulaire() {
+echo <<<FORM
+	<form method="post" action="$_SERVER[PHP_SELF]" name="formulaire">
+	  ID du membre a modifier:
+	  <input type="text" name="id"/>
+	  <br />
+	  <input type="submit" value="C'est parti !" />
+	  <a href='adm.php'>Retour</a>
+	</form>
+FORM;
+}
+
+function lienArriere() {
+	echo "<a href='adm.php'>Retour</a>";
+}
+
+function existe($id) {
+	$m = R::load('membres', $id);
+	if ($m->id == 0)
+		return false;
+	else
+		return true;
+}
+
+function afficheErreur($erreur)
+{
+echo <<<ERR
+<div class="erreur"> $erreur </div>
+ERR;
+}
+?>
+
+<?php
+if (!isset($_SESSION['pseudo']))
+    header('Location: index.php');
+else {
+	enteteTitreHTML('Recherche du membre a modifier');
+	if (isset($_POST['fromform'])) {
+		$id = trim($_POST['id']);		
+		if (existe($id) == true)
+			header('Location: modifmb.php');
+		else {
+			$erreur = "Il n'y a pas de membre sous cet id";
+			afficheErreur($erreur);
+			genereFormulaire();	
+			lienArriere();
+		}
+	}
+	else	
+		genereFormulaire();
+	finHTML();
+}
+?>

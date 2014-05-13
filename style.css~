@@ -1,7 +1,0 @@
-div.erreur
-{
-width:400px;
-color:red;
-border-style:solid;
-border-color:red;
-}

@@ -14,8 +14,15 @@ function verifieFormulaire($source, $courte, $creation, $auteur) {
 		$erreur .= "Le raccourci ne peut être vide" . "</br>";
 	if ($creation == "")
 		$erreur .= "La date ne peut etre vide" . "</br>";
-	if ($auteur == "")
-		$erreur .= "L'auteur ne peut être vide" . "</br>";
+	if ($auteur != "") {
+		if (!filter_var($auteur, FILTER_VALIDATE_INT))
+			$erreur .= "L'ID de l'auteur doit être un entier" . "</br>";
+		else {
+			$m = R::load('membres', $auteur);
+			if ($m->id == 0)
+				$erreur .= "L'auteur n'existe pas" . "</br>";
+		}
+	}
 	return $erreur;
 }
 
@@ -24,7 +31,10 @@ function rangerURL($id,$source, $courte, $creation, $auteur) {
 	$u->source = $source;
 	$u->courte = $courte;
 	$u->creation = $creation;
-	$u->auteur = $auteur;
+	if ($auteur == "")
+		$u->auteur = NULL;
+	else
+		$u->auteur = $auteur;
 	R::store($u);
 }
 
@@ -56,8 +66,12 @@ function afficherRes($id) {
 TAB;
 }
 
-function lienArriere() {
+function lienArriere1() {
 	echo "<a href='admurl.php'>Retour</a>";
+}
+
+function lienArriere2() {
+	echo "<a href='modif3url.php'>Retour</a>";
 }
 
 function afficheErreur($erreur)
@@ -80,13 +94,13 @@ else {
 	$auteur = trim($_POST['auteur']);
 	$erreur = verifieFormulaire($source, $courte, $creation, $auteur);
 	if ($erreur == "") {
-		rangerMembre($id,$source, $courte, $creation, $auteur);
+		rangerURL($id,$source, $courte, $creation, $auteur);
 		afficherRes($id);
-		lienArriere();
+		lienArriere1();
 	}
 	else {
 		afficheErreur($erreur);
-		lienArriere();
+		lienArriere2();
 	}
 	finHTML();		
 }		

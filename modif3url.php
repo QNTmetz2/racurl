@@ -15,16 +15,16 @@ function genereFormulaire($id) {
     echo <<<FORM
 	<form method="post" action="modif4url.php" name="formulaire">
 	ID: $id <br />
-	Nom:
+	Source:
 	<input type="text" name="source" value= $source >
 	<br />
-	Prenom:
+	Raccourci:
 	<input type="text" name="courte" value= $courte >
 	<br />
-	Pseudo:
+	Date de création:
 	<input type="text" name="creation" value= $creation >
 	<br />
-	Mail:
+	ID de l'auteur:
 	<input type="text" name="auteur" value= $auteur >
 	<br />
 	<input type="submit" value="C'est parti !" >

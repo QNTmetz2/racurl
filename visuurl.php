@@ -40,13 +40,13 @@ echo <<<FORM
 	  <br />
 	  <input type="submit" value="C'est parti !" />
 	  <input type="hidden" name="fromform" />
-	  <a href='adm.php'>Retour</a>
+	  <a href='admurl.php'>Retour</a>
 	</form>
 FORM;
 }
 
 function lienArriere() {
-	echo "<a href='adm.php'>Retour</a>";
+	echo "<a href='admurl.php'>Retour</a>";
 }
 
 function existe1($id) {

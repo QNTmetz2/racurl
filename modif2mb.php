@@ -23,12 +23,11 @@ ERR;
 }
 
 function lienArriere() {
-	echo "<a href='adm.php'>Retour</a>";
+	echo "<a href='modif1mb.php'>Retour</a>";
 }
 ?>
 
 <?php
-session_start();
 if (!isset($_SESSION['pseudo']))
     header('Location: index.php');
 else {

@@ -68,8 +68,12 @@ function afficherRes($id) {
 TAB;
 }
 
-function lienArriere() {
-	echo "<a href='adm.php'>Retour</a>";
+function lienArriere1() {
+	echo "<a href='admmb.php'>Retour</a>";
+}
+
+function lienArriere2() {
+	echo "<a href='modif3mb.php'>Retour</a>";
 }
 
 function afficheErreur($erreur)
@@ -96,11 +100,11 @@ else {
 	if ($erreur == "") {
 		rangerMembre($id,$nom,$prenom,$pseudo,$mail,$activation,$profil);
 		afficherRes($id);
-		lienArriere();
+		lienArriere1();
 	}
 	else {
 		afficheErreur($erreur);
-		lienArriere();
+		lienArriere2();
 	}
 	finHTML();		
 }		

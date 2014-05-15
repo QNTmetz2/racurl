@@ -79,11 +79,11 @@ if (isset($_GET['fromform'])) {
 	else if ($_GET[start] == 'acreer')
 		header('Location: enreg.php');
 	else if ($_GET[start] == 'rac') {
-		$_SESSION['source'] = trim($_GET['filtre1']);
+		$_SESSION['source'] = $_GET['filtre1'];
 		header('Location: rac.php');
 	}
 	else if ($_GET[start] == 'acc') {
-		$_SESSION['courte'] = trim($_GET['filtre2']);
+		$_SESSION['courte'] = $_GET['filtre2'];
 		header('Location: acc.php');
 	}
 }

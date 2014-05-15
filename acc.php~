@@ -41,6 +41,7 @@ function lienArriere() {
 <?php
 $courte = $_SESSION['courte'];
 if (existe($courte)) {
+	ajoutUtil($courte);
 	$source = getSource($courte);
 	header("Location: $source");
 }

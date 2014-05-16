@@ -14,7 +14,7 @@ if ($profil == "utilisateur")
 else
 	echo "<a href='myadmin.php'>";
 echo $pseudo . "</a></td><td>";
-echo "<a href='logout.php'>Se deconnecter</a></td></tr></table>";
+echo "<a href='logout.php'>Se déconnecter</a></td></tr></table>";
 }
 
 function accueilleVteur() {

@@ -6,10 +6,10 @@ function genereFormulaire()
 echo <<<ADM
 <form method="GET" action="$_SERVER[PHP_SELF]" name="formulaire">
 	<input type="radio" name="action" value="membres"/>
-		Gerer les membres
+		Gérer les membres
 		<br>
 	<input type="radio" name="action" value="urls"/>
-		Gerer les URLs
+		Gérer les URLs
 		<br>
 	<input type="submit" name="C'est parti !" />
 	<input type="hidden" name="fromform" />

@@ -135,7 +135,7 @@ else {
 	enteteTitreHTML('Visualiser une URL');
 	if (isset($_GET['fromform'])) {
 		if ($_GET['typerech'] == 'id') {
-			$id = trim($_GET['filtre1']);
+			$id = strip_tags(trim($_GET['filtre1']));
 			if (existe1($id) == true) {
 				afficheRes1($id);
 				lienArriere();
@@ -147,7 +147,7 @@ else {
 			}
 		}
 		else {
-			$courte = trim($_GET['filtre2']);
+			$courte = strip_tags(trim($_GET['filtre2']));
 			if (existe2($courte) == true) {
 				afficheRes2($courte);
 				lienArriere();

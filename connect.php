@@ -1,4 +1,4 @@
-<?
+<?php 
 include('tools.php');
 require 'rb.phar';
 R::setup('mysql:host=localhost;dbname=racurl','racurluser','racurlpwd');
@@ -42,30 +42,27 @@ echo <<<ERR
 <div class="erreur"> $erreur </div>
 ERR;
 }
-?>
 
-<?php
 enteteTitreHTML('Connexion au site');
 if (isset($_POST['fromform'])) {
-	$pseudo = trim($_POST['pseudo']);
-	$password = trim($_POST['password']);
-	$erreur = verifieFormulaire($pseudo, $password);
-	if ($erreur == "") {
-		$_SESSION['pseudo'] = $pseudo;
-		$bind = array("$pseudo");
-		$m = R::findOne('membres', 'pseudo = ?', $bind);
-		$profil = $m->profil;
-		if ($profil == "administrateur")
-			header('Location: myadmin.php');
-		else if ($profil == "utilisateur")
-			header('Location: index.php');
-	}
-	else {
-		genereFormulaire();
-		afficheErreur($erreur);
-	}
+  $pseudo = strip_tags(trim($_POST['pseudo']));
+  $password = strip_tags(trim($_POST['password']));
+  $erreur = verifieFormulaire($pseudo, $password);
+  if ($erreur == "") {
+    $_SESSION['pseudo'] = $pseudo;
+    $bind = array("$pseudo");
+    $m = R::findOne('membres', 'pseudo = ?', $bind);
+    $profil = $m->profil;
+    if ($profil == "administrateur")
+      header('Location: myadmin.php');
+    else if ($profil == "utilisateur")
+    header('Location: index.php');
+  }else {
+    genereFormulaire();
+    afficheErreur($erreur);
+  }
 }
 else
-	genereFormulaire();
+  genereFormulaire();
 finHTML();
 ?>

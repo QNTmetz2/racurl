@@ -32,7 +32,7 @@ session_start();
 if (!isset($_SESSION['pseudo']))
     header('Location: index.php');
 else {
-	$id = trim($_POST['id']);
+	$id = strip_tags(trim($_POST['id']));
 	$_SESSION['id'] = $id;
 	if (existe($id) == false) {
 		enteteTitreHTML("Recherche de l'URL a modifier");

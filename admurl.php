@@ -26,11 +26,11 @@ if (!isset($_SESSION['pseudo']))
 else {
 	enteteTitreHTML('Administration de la table urls');
 	if (isset($_GET['fromform'])) {
-		if ($_GET['action'] == 'visu')
+		if (strip_tags($_GET['action']) == 'visu')
 			header('Location: visuurl.php');
-		else if ($_GET['action'] == 'modif')
+		else if (strip_tags($_GET['action']) == 'modif')
 			header('Location: modif1url.php');
-		else if ($_GET['action'] == 'sup')
+		else if (strip_tags($_GET['action']) == 'sup')
 			header('Location: sup1url.php');
 	}
 	else

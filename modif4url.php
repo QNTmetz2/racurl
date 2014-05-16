@@ -88,10 +88,10 @@ if (!isset($_SESSION['pseudo']))
 else {
 	enteteTitreHTML('Modifier une URL');
 	$id = $_SESSION['id'];
-	$source = trim($_POST['source']);
-	$courte = trim($_POST['courte']);
-	$creation = trim($_POST['creation']);
-	$auteur = trim($_POST['auteur']);
+	$source = strip_tags(trim($_POST['source']));
+	$courte = strip_tags(trim($_POST['courte']));
+	$creation = strip_tags(trim($_POST['creation']));
+	$auteur = strip_tags(trim($_POST['auteur']));
 	$erreur = verifieFormulaire($source, $courte, $creation, $auteur);
 	if ($erreur == "") {
 		rangerURL($id,$source, $courte, $creation, $auteur);

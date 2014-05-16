@@ -146,7 +146,7 @@ else {
 	enteteTitreHTML('Visualiser un membre');
 	if (isset($_GET['fromform'])) {
 		if ($_GET['typerech'] == 'id') {
-			$id = trim($_GET['filtre1']);
+			$id = strip_tags(trim($_GET['filtre1']));
 			if (existe1($id) == true) {
 				afficheRes1($id);
 				lienArriere();
@@ -158,7 +158,7 @@ else {
 			}
 		}
 		else {
-			$pseudo = trim($_GET['filtre2']);
+			$pseudo = strip_tags(trim($_GET['filtre2']));
 			if (existe2($pseudo) == true) {
 				afficheRes2($pseudo);
 				lienArriere();

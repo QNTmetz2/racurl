@@ -90,12 +90,12 @@ if (!isset($_SESSION['pseudo']))
 else {
 	enteteTitreHTML('Modifier un membre');
 	$id = $_SESSION['id'];
-	$nom = trim($_POST['nom']);
-	$prenom = trim($_POST['prenom']);
-	$pseudo = trim($_POST['pseudo']);
-	$mail = trim($_POST['mail']);
-	$activation = trim($_POST['activation']);
-	$profil = trim($_POST['profil']);
+	$nom = strip_tags(trim($_POST['nom']));
+	$prenom = strip_tags(trim($_POST['prenom']));
+	$pseudo = strip_tags(trim($_POST['pseudo']));
+	$mail = strip_tags(trim($_POST['mail']));
+	$activation = strip_tags(trim($_POST['activation']));
+	$profil = strip_tags(trim($_POST['profil']));
 	$erreur = verifieFormulaire($nom,$prenom,$pseudo,$mail,$activation,$profil);
 	if ($erreur == "") {
 		rangerMembre($id,$nom,$prenom,$pseudo,$mail,$activation,$profil);

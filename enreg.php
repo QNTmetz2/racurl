@@ -74,12 +74,12 @@ ERR;
 
 enteteTitreHTML('Création de compte');
 if (isset($_POST['fromform'])) {
-	$nom = trim($_POST['nom']);
-	$prenom = trim($_POST['prenom']);
-	$pseudo = trim($_POST['pseudo']);
-	$mail = trim($_POST['mail']);
-	$mdp1 = trim($_POST['mdp1']);
-	$mdp2 = trim($_POST['mdp2']);
+	$nom = strip_tags(trim($_POST['nom']));
+	$prenom = strip_tags(trim($_POST['prenom']));
+	$pseudo = strip_tags(trim($_POST['pseudo']));
+	$mail = strip_tags(trim($_POST['mail']));
+	$mdp1 = strip_tags(trim($_POST['mdp1']));
+	$mdp2 = strip_tags(trim($_POST['mdp2']));
 	$erreur = verifieFormulaire($nom, $prenom, $pseudo, $mail, $mdp1, $mdp2);
 	if ($erreur == "") {
 		ajouteMembre($nom, $prenom, $pseudo, $mail, $mdp1);

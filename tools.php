@@ -5,14 +5,14 @@ session_start();
 function enteteHTML($titre)
 {
   echo <<< YOP
-<!DOCTYPE html> 
-<html>
+  <!DOCTYPE html> 
+  <html>
   <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-    <title>
-      $titre
-    </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+  <title>
+  $titre
+  </title>
   </head>
   <body>
 YOP;

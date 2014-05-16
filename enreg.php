@@ -7,16 +7,16 @@ define("SALT", "avril");
 
 function genereFormulaire($nom = "", $prenom = "", $pseudo = "", $mail = "", $mdp1 = "", $mdp2 = "")
 {
-echo <<<ENR
+  echo <<<ENR
 	<form method="post" action="$_SERVER[PHP_SELF]" name="enreg">
 		<table>
 			<tr> <td> Nom: </td> <td> <input type="text" name="nom" value= "$nom" /> <td> </tr>
 			<tr> <td> Prénom: </td> <td> <input type="text" name="prenom" value= "$prenom" /> <td> </tr>
 			<tr> <td> Pseudo: </td> <td> <input type="text" name="pseudo" value= "$pseudo" /> <td> </tr>
 			<tr> <td> Mail: </td> <td> <input type="text" name="mail" value= "$mail" /> <td> </tr>
-			<tr> <td> Mot de passe: </td> <td> <input type="text" name="mdp1" value= "$mdp1" /> <td> </tr>
-			<tr> <td> Vérification du mot de passe: </td> <td> <input type="text" name="mdp2" value= "$mdp2" /> <td> </tr>
-			<tr> <td></td> <td> <input type="submit" name="Go to go!" /> <td> </tr>	
+			<tr> <td> Mot de passe: </td> <td> <input type="password" name="mdp1" value= "$mdp1" /> <td> </tr>
+			<tr> <td> Vérification du mot de passe: </td> <td> <input type="password" name="mdp2" value= "$mdp2" /> <td> </tr>
+			<tr> <td> <input type="submit" value="Annuler" name="Go" /></td><td> <input type="submit" value="Valider &rarr;" name="Go" /> <td> 	</tr>
 			<input type="hidden" name="fromform" />
 		</table>	
 	</form>
@@ -74,23 +74,27 @@ ERR;
 
 enteteTitreHTML('Création de compte');
 if (isset($_POST['fromform'])) {
-	$nom = strip_tags(trim($_POST['nom']));
-	$prenom = strip_tags(trim($_POST['prenom']));
-	$pseudo = strip_tags(trim($_POST['pseudo']));
-	$mail = strip_tags(trim($_POST['mail']));
-	$mdp1 = strip_tags(trim($_POST['mdp1']));
-	$mdp2 = strip_tags(trim($_POST['mdp2']));
-	$erreur = verifieFormulaire($nom, $prenom, $pseudo, $mail, $mdp1, $mdp2);
-	if ($erreur == "") {
-		ajouteMembre($nom, $prenom, $pseudo, $mail, $mdp1);
-		header('Location: index.php');
-	}
-	else {
-		genereFormulaire($nom, $prenom, $pseudo, $mail);
-		afficheErreur($erreur);
-	}		
-}
-else
-	genereFormulaire();
+  $nom = strip_tags(trim($_POST['nom']));
+  $prenom = strip_tags(trim($_POST['prenom']));
+  $pseudo = strip_tags(trim($_POST['pseudo']));
+  $mail = strip_tags(trim($_POST['mail']));
+  $mdp1 = strip_tags(trim($_POST['mdp1']));
+  $mdp2 = strip_tags(trim($_POST['mdp2']));
+  $choix= $_POST['Go'];
+  $erreur = verifieFormulaire($nom, $prenom, $pseudo, $mail, $mdp1, $mdp2);
+
+  if($choix == "Annuler")
+    header('Location:index.php');
+  else{
+    if ($erreur == "") {
+      ajouteMembre($nom, $prenom, $pseudo, $mail, $mdp1);
+      header('Location: index.php');
+    }else{
+      genereFormulaire($nom, $prenom, $pseudo, $mail);
+      afficheErreur($erreur);
+    }		
+  }
+}else
+genereFormulaire();
 finHTML();
 ?>

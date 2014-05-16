@@ -25,7 +25,6 @@ function verifieFormulaire($pseudo, $password) {
 	$num = R::count('membres', 'pseudo = ?', $bind);
 	if ($num == 0) {
 		$erreur = "Le pseudo ". "$pseudo" . " n'est associé à aucun compte" . "</br>";
-		//genereFormulaire();
 	}
 	else {
 		$m = R::findOne('membres', 'pseudo = ?', $bind);

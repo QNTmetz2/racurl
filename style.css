@@ -34,4 +34,15 @@ body
   width:300px;
   margin:auto;
   padding:200px; 
+  text-align:center
   }
+table
+{
+text-align:right;
+width:300px;
+border:2px solid red;
+padding:5px,5px,5px,5px;
+margin:5px,5px,5px,5px;
+border-radius:10px;
+background-color:pink
+ }

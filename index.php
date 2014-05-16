@@ -38,7 +38,6 @@ echo <<<JS
 	 }
 	</script>
 JS;
-echo "<div background-color:red>";
 echo <<<START
 	<form  method="GET" action="$_SERVER[PHP_SELF]" name="formulaire">
 		<input type="radio" name="start" value="rac" onchange="majzone();" checked="checked"/>
@@ -64,7 +63,7 @@ START;
 }
 echo <<<START
 	<input type="hidden" name="fromform" />
-	<input type="submit" name="Go to go!" />
+	<input type="submit" value="Valider &rarr;" name="Go to go!" />
 	</form>
 START;
 }
@@ -74,13 +73,13 @@ START;
 if (isset($_GET['fromform'])) {
 	if ($_GET[start] == 'dejcree')
 		header('Location: connect.php');
-	else if ($_GET[start] == 'acreer')
+	else if (strip_tags($_GET[start]) == 'acreer')
 		header('Location: enreg.php');
-	else if ($_GET[start] == 'rac') {
+	else if (strip_tags($_GET[start]) == 'rac') {
 		$_SESSION['source'] = strip_tags(trim($_GET['filtre1']));
 		header('Location: rac.php');
 	}
-	else if ($_GET[start] == 'acc') {
+	else if (strip_tags($_GET[start]) == 'acc') {
 		$_SESSION['courte'] = strip_tags(trim($_GET['filtre2']));
 		header('Location: acc.php');
 	}
@@ -97,6 +96,5 @@ else {
 	titreHTML('Raccourcir une URL');
 	accueilleVteur();
 	finHTML();
-echo "</div>";
 }
 ?>

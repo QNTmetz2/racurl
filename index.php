@@ -38,6 +38,7 @@ echo <<<JS
 	 }
 	</script>
 JS;
+echo "<div background-color:red>";
 echo <<<START
 	<form  method="GET" action="$_SERVER[PHP_SELF]" name="formulaire">
 		<input type="radio" name="start" value="rac" onchange="majzone();" checked="checked"/>
@@ -96,5 +97,6 @@ else {
 	titreHTML('Raccourcir une URL');
 	accueilleVteur();
 	finHTML();
+echo "</div>";
 }
 ?>

@@ -10,7 +10,7 @@ echo <<<CNCT
 	<form method="post" action="$_SERVER[PHP_SELF]" name="connect">
 		<table>
 			<tr> <td> Pseudo: </td> <td> <input type="text" name="pseudo" value= "$pseudo" /> <td> </tr>
-			<tr> <td> Mot de passe: </td> <td> <input type="text" name="password" value= "$password" /> <td> </tr>
+			<tr> <td> Mot de passe: </td> <td> <input type="password" name="password" value= "$password" /> <td> </tr>
 			<tr> <td></td> <td> <input type="submit" name="Go to go!" /> <td> </tr>	
 			<input type="hidden" name="fromform" />
 		</table>	
@@ -25,7 +25,7 @@ function verifieFormulaire($pseudo, $password) {
 	$num = R::count('membres', 'pseudo = ?', $bind);
 	if ($num == 0) {
 		$erreur = "Le pseudo ". "$pseudo" . " n'est associé à aucun compte" . "</br>";
-		genereFormulaire();
+		//genereFormulaire();
 	}
 	else {
 		$m = R::findOne('membres', 'pseudo = ?', $bind);

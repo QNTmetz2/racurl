@@ -5,44 +5,34 @@ div.erreur
   text-align:center;
   border-style:solid;
   border-color:red;
+  margin:auto;
+  font-size:small
   }
-logo de page d'accueil-->
-.logo
-{ color:red;
-  }
-lien de connexion pour les utilisateurs enregistrés-->
-.connexion
-{ color:blue; }
-
-formulaire de page d'accueil-->
-.accueil
-{ border:2px solid #a1a1a1;
-  padding:200px;
-  }
-
-pour des bordures fines et arrondies-->
-.surround{
-           background-color: red;
-           color:aqua;
-           }
-
-p{ color:green; }
-
 body
 {
   background-color:lightsalmon;
-  width:300px;
-  margin:auto;
-  padding:200px; 
-  text-align:center
+  margin-top:auto; 
+  text-align:center;
+  font-family:impact;
+  font-size:large;
+  }
+h1
+{
+margin:0;
   }
 table
 {
-text-align:right;
-width:300px;
-border:2px solid red;
-padding:5px,5px,5px,5px;
-margin:5px,5px,5px,5px;
-border-radius:10px;
-background-color:pink
+  margin:auto;
+  text-align:right;
+  width:350px;
+  border:2px solid red;
+  border-radius:10px;
+  background-color:pink
+  }
+input
+{ 
+  height:20px;
+  font-size:15px;
  }
+
+

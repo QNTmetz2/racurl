@@ -39,6 +39,7 @@ echo <<<JS
 	</script>
 JS;
 echo <<<START
+<div class="formulaire">
 	<form  method="GET" action="$_SERVER[PHP_SELF]" name="formulaire">
 		<input type="radio" name="start" value="rac" onchange="majzone();" checked="checked"/>
 	  	Raccourcir l'URL

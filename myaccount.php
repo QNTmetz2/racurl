@@ -23,7 +23,7 @@ function afficheURLs($pseudo) {
 	$bind2 = array($id);
 	$urls = R::findAll('urls', 'auteur = ?', $bind2);
 	echo "<form name='input' action='delownurls.php' method='post'>";
-	echo '<table>';
+	echo '<table class="large">';
 	echo "<tr><th colspan='4'>" . "URLs de " . $pseudo . "</th></tr>";
 	echo '<tr><th>Source</th><th>Courte</th><th>Création</th><th>Suppression</th></tr>';
 	$i = 0;
@@ -51,9 +51,6 @@ function lienArriere() {
 	echo "<a href='index.php'>Retour</a>";
 }
 
-?>
-
-<?
 if (!isset($_SESSION['pseudo']))
     header('Location: index.php');
 else {

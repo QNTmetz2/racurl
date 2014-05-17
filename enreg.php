@@ -35,8 +35,7 @@ function verifieFormulaire($nom, $prenom, $pseudo, $mail, $mdp1, $mdp2) {
 	if ($mail == "")
 		$erreur .= "Le mail ne peut être vide" . "</br>";
 	if (($mdp1 == "")||($mdp2 == ""))
-		$erreur .= "Le mot de passe ne peut être vide" . "</br>";
-	if ($pseudo != "") {
+		$erreur .= "Le mot de passe ne peut être vide" . "</br>";	if ($pseudo != "") {
 		$bind = array("$pseudo");
 		$num = R::count('membres', 'pseudo = ?', $bind);
 		if ($num>0)
@@ -80,7 +79,7 @@ if (isset($_POST['fromform'])) {
   $mail = strip_tags(trim($_POST['mail']));
   $mdp1 = strip_tags(trim($_POST['mdp1']));
   $mdp2 = strip_tags(trim($_POST['mdp2']));
-  $choix= $_POST['Go'];
+  $choix= strip_tags($_POST['Go']);
   $erreur = verifieFormulaire($nom, $prenom, $pseudo, $mail, $mdp1, $mdp2);
 
   if($choix == "Annuler")

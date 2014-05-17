@@ -11,7 +11,7 @@ echo <<<CNCT
 		<table>
 			<tr> <td> Pseudo: </td> <td> <input type="text" name="pseudo" value= "$pseudo" /> <td> </tr>
 			<tr> <td> Mot de passe: </td> <td> <input type="password" name="password" value= "$password" /> <td> </tr>
-			<tr> <td></td> <td> <input type="submit" name="Go to go!" /> <td> </tr>	
+			<tr> <td> <input type="submit" value="Annuler" name="Go" /></td><td></td> <td> <input type="submit" value="Valider &rarr;" name="Go" /> <td> </tr>	
 			<input type="hidden" name="fromform" />
 		</table>	
 	</form>
@@ -46,19 +46,25 @@ enteteTitreHTML('Connexion au site');
 if (isset($_POST['fromform'])) {
   $pseudo = strip_tags(trim($_POST['pseudo']));
   $password = strip_tags(trim($_POST['password']));
+  $choix=strip_tags($_POST['Go']);
   $erreur = verifieFormulaire($pseudo, $password);
-  if ($erreur == "") {
-    $_SESSION['pseudo'] = $pseudo;
-    $bind = array("$pseudo");
-    $m = R::findOne('membres', 'pseudo = ?', $bind);
-    $profil = $m->profil;
-    if ($profil == "administrateur")
-      header('Location: myadmin.php');
-    else if ($profil == "utilisateur")
-    header('Location: index.php');
-  }else {
-    genereFormulaire();
-    afficheErreur($erreur);
+  if($choix=="Annuler")
+    header('location:index.php');
+  else{
+    
+    if ($erreur == "") {
+      $_SESSION['pseudo'] = $pseudo;
+      $bind = array("$pseudo");
+      $m = R::findOne('membres', 'pseudo = ?', $bind);
+      $profil = $m->profil;
+      if ($profil == "administrateur")
+	header('Location: myadmin.php');
+      else if ($profil == "utilisateur")
+      header('Location: index.php');
+    }else {
+      genereFormulaire();
+      afficheErreur($erreur);
+    }
   }
 }
 else

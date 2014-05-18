@@ -13,7 +13,7 @@ body
   background-color:lightsalmon;
   margin-top:auto; 
   text-align:center;
-  font-family:impact;
+  font-family:Arial;
   font-size:large;
   }
 h1
@@ -23,18 +23,36 @@ margin:0;
 table
 {
   margin:auto;
-  width:350px;
+  width:450px;
   border:2px solid red;
   border-radius:10px;
   background-color:pink
   }
 input
 { 
-  height:20px;
+  height:25px;
   font-size:15px;
+  font-weight: bold;
+ }
+input[type=submit]
+{
+  margin-top:5px;
+  width:100px;
+  background-color:silver;
+ }
+input[type=radio]
+{ 
+width:20px;
+ }
+input[type=checkbox]
+{ 
+width:20px;
  }
 .large
 { 
-width:auto;
+  width:auto;
  }
+a:hover {
+          font-weight: bold;
+}
 

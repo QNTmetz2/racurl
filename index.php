@@ -5,13 +5,13 @@ R::setup('mysql:host=localhost;dbname=racurl','racurluser','racurlpwd');
 R::debug (TRUE, 1);
 
 function affichePseudo($pseudo, $profil) {
-echo "<table><tr><td>Connecté comme</td><td>";
+echo "<table><tr><td>Connecté comme $pseudo</td><td>";
 if ($profil == "utilisateur")
 	echo "<a href='myaccount.php'>";
 else
 	echo "<a href='myadmin.php'>";
-echo $pseudo . "</a></td><td>";
-echo "<a href='logout.php'>Se déconnecter</a></td></tr></table>";
+echo "Mon compte</a></td><td>";
+echo "<a href='logout.php'>Déconnexion</a></td></tr></table>";
 }
 
 function accueilleVteur() {

@@ -86,7 +86,7 @@ if (isset($_GET['fromform'])) {
 	}
 }
 else {
-	enteteHTML('Raccourcir une URL');
+	enteteHTML('Raccourcissez vos URL');
 	if (isset($_SESSION['pseudo'])) {
 		$pseudo = $_SESSION['pseudo'];
 		$bind = array("$pseudo");
@@ -94,7 +94,7 @@ else {
 		$profil = $m->profil;
 		affichePseudo($pseudo,$profil);		
 	}
-	titreHTML('Raccourcir une URL');
+	titreHTML('faites votre choix...');
 	accueilleVteur();
 	finHTML();
 }

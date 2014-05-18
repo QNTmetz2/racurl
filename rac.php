@@ -65,7 +65,7 @@ function afficheCourte($id) {
 	</tr>
 	<tr>
 		<th>URL courte</th>
-		<td>$courte</td>
+		<td><a href=$source>$courte</a></td>
 	</tr>
 	<tr>
 		<th>Date de création</th>

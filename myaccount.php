@@ -33,8 +33,8 @@ function afficheURLs($pseudo) {
 		$creation = $u->creation;
 		echo '<tr bgcolor="#' . (($i++ % 2) ? "D0FFFF" : "FFD0FF") . '">';
 		echo <<<CELL
-		<td>$source</td>
-		<td>$courte</td>
+		<td><a href=$source>$source</a></td>
+		<td><a href=$source>$courte</a></td>
 		<td>$creation</td>
 		<td>
 		<input type="checkbox" name="todelete[]" value="$courte"><br>

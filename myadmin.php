@@ -11,15 +11,13 @@ echo <<<ADM
 	<input type="radio" name="action" value="urls"/>
 		Gérer les URLs
 		<br>
-	<input type="submit" name="C'est parti !" />
+	<input type="submit" value="Valider &rarr;" name="C'est parti !" />
 	<input type="hidden" name="fromform" />
 	<a href='logout.php'>Se deconnecter</a>
 </form>
 ADM;
 }
-?>
 
-<?
 if (!isset($_SESSION['pseudo']))
     header('Location: index.php');
 else {

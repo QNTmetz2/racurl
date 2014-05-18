@@ -14,7 +14,6 @@ echo <<<FORM
 	</form>
 FORM;
 }
-
 ?>
 
 <?php

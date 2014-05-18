@@ -10,7 +10,7 @@ echo <<<FORM
 	  <input type="text" name="id"/>
 	  <br />
 	  <input type="submit" value="C'est parti !" />
-	  <a href='adm.php'>Retour</a>
+	  <a href='admmb.php'>Retour</a>
 	</form>
 FORM;
 }

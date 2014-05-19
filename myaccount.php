@@ -1,5 +1,6 @@
 <?php
 include('tools.php');
+//include('statistiques.php');
 require 'rb.phar';
 R::setup('mysql:host=localhost;dbname=racurl','racurluser','racurlpwd');
 R::debug (TRUE, 1);
@@ -55,6 +56,7 @@ if (!isset($_SESSION['pseudo']))
     header('Location: index.php');
 else {
 	$pseudo = $_SESSION['pseudo'];
+  echo "dd".$pseudo;
 	enteteTitreHTML('Mes URLs');
 	if (compteURL($pseudo) == 0) {
 		echo "Pas d'URL créée pour le moment par " . $pseudo . "</br>";
@@ -64,6 +66,7 @@ else {
 		afficheURLs($pseudo);	
 		lienArriere();
 	}
-	finHTML();
+  //afficheStat($pseudo);
+  finHTML();
 }
 ?>

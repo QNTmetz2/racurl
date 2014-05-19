@@ -23,7 +23,7 @@ margin:0;
 table
 {
   margin:auto;
-  width:450px;
+  width:auto;
   border:2px solid red;
   border-radius:10px;
   background-color:pink
@@ -47,10 +47,6 @@ width:20px;
 input[type=checkbox]
 { 
 width:20px;
- }
-.large
-{ 
-  width:auto;
  }
 a:hover {
           font-weight: bold;

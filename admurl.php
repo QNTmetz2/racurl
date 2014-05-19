@@ -14,7 +14,7 @@ echo <<<ADM
 	<input type="radio" name="action" value="sup"/>
 		Supprimer une URL
 		<br>
-	<input type="submit" name="C'est parti !" />
+	<input type="submit" value="Valider &rarr;" name="C'est parti !" />
 	<input type="hidden" name="fromform" />
 	<a href='myadmin.php'>Retour</a>
 </form>

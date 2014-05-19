@@ -36,19 +36,15 @@ function lienArriere() {
 	echo "<a href='index.php'>Retour</a>";
 }
 
-?>
-
-<?php
-$courte = $_SESSION['courte'];
-if (existe($courte)) {
-	$source = getSource($courte);
-	header("Location: $source");
+if(!empty($_GET['url'])) {
+  $source = getSource(strip_tags(trim($_GET['url'])));
+  header("Location: " . $source);
 }
 else {
-	enteteTitreHTML('Accéder à une URL');
-	$erreur = "Le raccourci fourni n'existe pas";
-	afficheErreur($erreur);
-	lienArriere();
-	finHTML();
+  enteteTitreHTML('Accéder à une URL');
+  $erreur = "Le raccourci fourni n'existe pas";
+  afficheErreur($erreur);
+  lienArriere();
+  finHTML();
 }
 ?>

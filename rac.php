@@ -49,23 +49,24 @@ function ajouteURL($source) {
 }
 
 function afficheCourte($id) {
-	$u = R::load('urls',$id);
-	$source = $u->source;
-	$courte = $u->courte;
-	$creation = $u->creation;
-	$auteur = $u->auteur;
-	enteteTitreHTML('Votre URL courte');
-    echo <<<TAB
+  $u = R::load('urls',$id);
+  $source = $u->source;
+  $courte = $u->courte;
+  $creation = $u->creation;
+  $auteur = $u->auteur;
+  enteteTitreHTML('Votre URL courte');
+  $cible=substr_replace($_SERVER['PHP_SELF'], "/acc.php?url=".$courte, -8);
+  echo <<<TAB
 	Votre URL courte a été correctement générée
 	<br />
 	<table>
     <tr>
 		<th>URL source</th>
-		<td>$source</td>
+		<td><a href=$source>$source</td>
 	</tr>
 	<tr>
 		<th>URL courte</th>
-		<td><a href=$source>$courte</a></td>
+		<td><a href=$cible>$courte</a></td>
 	</tr>
 	<tr>
 		<th>Date de création</th>

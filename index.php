@@ -72,30 +72,29 @@ START;
 
 <?php
 if (isset($_GET['fromform'])) {
-	if ($_GET[start] == 'dejcree')
-		header('Location: connect.php');
-	else if (strip_tags($_GET[start]) == 'acreer')
-		header('Location: enreg.php');
-	else if (strip_tags($_GET[start]) == 'rac') {
-		$_SESSION['source'] = strip_tags(trim($_GET['filtre1']));
-		header('Location: rac.php');
-	}
-	else if (strip_tags($_GET[start]) == 'acc') {
-		$_SESSION['courte'] = strip_tags(trim($_GET['filtre2']));
-		header('Location: acc.php');
-	}
+  if ($_GET[start] == 'dejcree')
+    header('Location: connect.php');
+  else if (strip_tags($_GET[start]) == 'acreer')
+  header('Location: enreg.php');
+  else if (strip_tags($_GET[start]) == 'rac') {
+    $_SESSION['source'] = strip_tags(trim($_GET['filtre1']));
+    header('Location: rac.php');
+  }
+  else if (strip_tags($_GET[start]) == 'acc') {
+    header('Location: '.substr_replace($_SERVER['PHP_SELF'], "/acc.php?url=".strip_tags(trim($_GET['filtre2'])), -10));
+  }
 }
 else {
-	enteteHTML('Raccourcissez vos URL');
-	if (isset($_SESSION['pseudo'])) {
-		$pseudo = $_SESSION['pseudo'];
-		$bind = array("$pseudo");
-		$m = R::findOne('membres', 'pseudo = ?', $bind);
-		$profil = $m->profil;
-		affichePseudo($pseudo,$profil);		
-	}
-	titreHTML('faites votre choix...');
-	accueilleVteur();
-	finHTML();
+  enteteHTML('Raccourcissez vos URL');
+  if (isset($_SESSION['pseudo'])) {
+    $pseudo = $_SESSION['pseudo'];
+    $bind = array("$pseudo");
+    $m = R::findOne('membres', 'pseudo = ?', $bind);
+    $profil = $m->profil;
+    affichePseudo($pseudo,$profil);		
+  }
+  titreHTML('faites votre choix...');
+  accueilleVteur();
+  finHTML();
 }
 ?>

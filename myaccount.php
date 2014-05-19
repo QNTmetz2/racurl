@@ -33,9 +33,10 @@ function afficheURLs($pseudo) {
 		$courte = $u->courte;
 		$creation = $u->creation;
 		echo '<tr bgcolor="#' . (($i++ % 2) ? "D0FFFF" : "FFD0FF") . '">';
+                $cible=substr_replace($_SERVER['PHP_SELF'], "/acc.php?url=".$courte, -14);
 		echo <<<CELL
 		<td><a href=$source>$source</a></td>
-		<td><a href=$source>$courte</a></td>
+		<td><a href=$cible>$courte</a></td>
 		<td>$creation</td>
 		<td>
 		<input type="checkbox" name="todelete[]" value="$courte"><br>

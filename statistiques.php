@@ -47,10 +47,10 @@ foreach($urls as $value){
   $usages=R::count('utilisations','url = ?',$bind3);
   echo "['".$value->source."',".$usages."],";
 }
-echo "['bug',1]])";
+echo "])";
 echo <<<AFFICHE
 // Set chart options
-var options = {'title':'Statistique d\'utilisation de vos URL','width':400,'height':300};
+var options = {'title':'Statistique d\'utilisation de vos URL','width':800,'height':600};
 // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
     chart.draw(data, options);
@@ -58,6 +58,7 @@ var options = {'title':'Statistique d\'utilisation de vos URL','width':400,'heig
   </script>
   </head>
   <body>
+  <div><a href='index.php'>Retour</a></div>
   <div>
   <!--Div that will hold the pie chart-->
   <div id="chart_div"></div>

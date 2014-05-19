@@ -36,7 +36,7 @@ function lienArriere() {
 	echo "<a href='index.php'>Retour</a>";
 }
 
-if(!empty($_GET['url'])) {
+if(existe($_GET['url'])) {
   $source = getSource(strip_tags(trim($_GET['url'])));
   header("Location: " . $source);
 }

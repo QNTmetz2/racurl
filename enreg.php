@@ -87,7 +87,7 @@ if (isset($_POST['fromform'])) {
   else{
     if ($erreur == "") {
       ajouteMembre($nom, $prenom, $pseudo, $mail, $mdp1);
-      header('Location: index.php');
+      header('Location: index.php';)
     }else{
       genereFormulaire($nom, $prenom, $pseudo, $mail);
       afficheErreur($erreur);

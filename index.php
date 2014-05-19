@@ -72,6 +72,7 @@ START;
 
 <?php
 if (isset($_GET['fromform'])) {
+echo $_GET['fromform'];
   if ($_GET[start] == 'dejcree')
     header('Location: connect.php');
   else if (strip_tags($_GET[start]) == 'acreer')

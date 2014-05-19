@@ -54,6 +54,7 @@ a:hover
  }
 #chart_div
 { 
-margin:auto;
+padding:60px;
+display:inline-block;
  }
 

@@ -48,7 +48,12 @@ input[type=checkbox]
 { 
 width:20px;
  }
-a:hover {
-          font-weight: bold;
-}
+a:hover
+{
+  font-weight: bold;
+ }
+#chart_div
+{ 
+margin:auto;
+ }
 

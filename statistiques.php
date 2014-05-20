@@ -3,8 +3,8 @@ include('tools.php');
 include('rb.phar');
 R::setup('mysql:host=localhost;dbname=racurl','racurluser','racurlpwd');
 R::debug (TRUE, 1);
-
-if (false)//!isset($_SESSION['pseudo']))
+$pseudo=$_SESSION['pseudo'];
+if (!isset($_SESSION['pseudo']))
   header('Location: index.php');
 else {
   echo <<<STAT
@@ -34,8 +34,7 @@ else {
     data.addColumn('number', 'Slices');
     data.addRows([
 STAT;
-$pseudo='raoul';
-$urls=array(100);//compteURL($pseudo));
+$urls=compteURL($pseudo));
 $bind1 = array($pseudo);
 $m = R::findOne('membres', 'pseudo = ?', $bind1);
 $id = $m->id;

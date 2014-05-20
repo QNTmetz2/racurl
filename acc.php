@@ -47,5 +47,9 @@ else {
   lienArriere();
   finHTML();
 }
+/*+if(!empty($_GET['url'])) {
++  $source = getSource(strip_tags(trim($_GET['url'])));
++  header("Location: " . $source);
+ }*/
 ?>
 

@@ -39,17 +39,12 @@ function lienArriere() {
 if(existe($_GET['url'])) {
   $source = getSource(strip_tags(trim($_GET['url'])));
   header("Location: " . $source);
+}else{
+    enteteTitreHTML('Accéder à une URL');
+    $erreur = "Le raccourci fourni n'existe pas";
+    afficheErreur($erreur);
+    lienArriere();
+    finHTML();
 }
-else {
-  enteteTitreHTML('Accéder à une URL');
-  $erreur = "Le raccourci fourni n'existe pas";
-  afficheErreur($erreur);
-  lienArriere();
-  finHTML();
-}
-/*+if(!empty($_GET['url'])) {
-+  $source = getSource(strip_tags(trim($_GET['url'])));
-+  header("Location: " . $source);
- }*/
 ?>
 

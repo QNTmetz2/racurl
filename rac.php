@@ -55,7 +55,7 @@ function afficheCourte($id) {
   $creation = $u->creation;
   $auteur = $u->auteur;
   enteteTitreHTML('Votre URL courte');
-  $cible=substr_replace($_SERVER['PHP_SELF'], "/acc.php?url=".$courte, -8);
+  $cible='acc.php?url='.$courte;
   echo <<<TAB
 	Votre URL courte a été correctement générée
 	<br />

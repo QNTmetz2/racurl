@@ -72,7 +72,7 @@ START;
 
 <?php
 if (isset($_GET['fromform'])) {
-echo $_GET['fromform'];
+  echo $_GET['fromform'];
   if ($_GET[start] == 'dejcree')
     header('Location: connect.php');
   else if (strip_tags($_GET[start]) == 'acreer')
@@ -81,11 +81,10 @@ echo $_GET['fromform'];
     $_SESSION['source'] = strip_tags(trim($_GET['filtre1']));
     header('Location: rac.php');
   }
-  else if (strip_tags($_GET[start]) == 'acc') {
-    header('Location: '.substr_replace($_SERVER['PHP_SELF'], "/acc.php?url=".strip_tags(trim($_GET['filtre2'])), -10));
+  else if (strip_tags($_GET[start]) == 'acc'){
+    header('Location: acc.php?url='.strip_tags(trim($_GET['filtre2'])));
   }
-}
-else {
+}else{
   enteteHTML('Raccourcissez vos URL');
   if (isset($_SESSION['pseudo'])) {
     $pseudo = $_SESSION['pseudo'];

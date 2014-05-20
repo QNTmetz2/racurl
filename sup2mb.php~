@@ -17,7 +17,7 @@ function existe($id) {
 function supprimerMembre($id) {
 	$m = R::load('membres', $id);
 	R::trash($m);
-	echo "Le membre portant l'ID " . $id . " a été correctement supprimé" . "<br />";
+	echo "Le membre portant l'ID" . $id . "a été correctement supprimé" . "<br />";
 }
 
 function lienArriere() {

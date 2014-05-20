@@ -7,21 +7,21 @@ R::debug (TRUE, 1);
 
 <?php
 function existe($id) {
-	$m = R::load('membres', $id);
-	if ($m->id == 0)
+	$u = R::load('urls', $id);
+	if ($u->id == 0)
 		return false;
 	else
 		return true;
 }
 
-function supprimerMembre($id) {
-	$m = R::load('membres', $id);
-	R::trash($m);
-	echo "Le membre portant l'ID " . $id . " a été correctement supprimé" . "<br />";
+function supprimerURL($id) {
+	$u = R::load('urls', $id);
+	R::trash($u);
+	echo "Le raccourci portant l'ID" . $id . "a été correctement supprimé" . "<br />";
 }
 
 function lienArriere() {
-	echo "<a href='admmb.php'>Retour</a>";
+	echo "<a href='admurl.php'>Retour</a>";
 }
 
 function afficheErreur($erreur)
@@ -36,15 +36,15 @@ ERR;
 if (!isset($_SESSION['pseudo']))
     header('Location: index.php');
 else {
-	enteteTitreHTML('Supprimer un membre');
-	$id = strip_tags(trim($_POST['id']));
+	enteteTitreHTML('Supprimer une URL');
+	$id = $_POST['id'];
 	if (existe($id) == false) {
-		$erreur = "Il n'y a pas de membre sous cet id";
+		$erreur = "Il n'y a pas d'URL sous cet id";
 		afficheErreur($erreur);
 		lienArriere();
 	}
 	else {
-		supprimerMembre($id);
+		supprimerURL($id);
 		lienArriere();
 	}
 	finHTML();		

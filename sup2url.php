@@ -17,7 +17,7 @@ function existe($id) {
 function supprimerURL($id) {
 	$u = R::load('urls', $id);
 	R::trash($u);
-	echo "Le raccourci portant l'ID" . $id . "a été correctement supprimé" . "<br />";
+	echo "Le raccourci portant l'ID " . $id . " a été correctement supprimé" . "<br />";
 }
 
 function lienArriere() {

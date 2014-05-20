@@ -64,7 +64,6 @@ else {
 	else {
 		afficheURLs($pseudo);	
 		lienArriere();
-		echo "</br>";
 		echo "<a href='statistiques.php'>Statistiques d'utilisation</a>";
 	}
   finHTML();

@@ -1,8 +1,6 @@
 <?php
 include('tools.php');
-require 'rb.phar';
-R::setup('mysql:host=localhost;dbname=racurl','racurluser','racurlpwd');
-R::debug (TRUE, 1);
+include('config.php');
 ?>
 
 <?php

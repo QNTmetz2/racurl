@@ -1,8 +1,6 @@
 <?php
 include('tools.php');
-include('rb.phar');
-R::setup('mysql:host=localhost;dbname=racurl','racurluser','racurlpwd');
-R::debug (TRUE, 1);
+include('config.php');
 $pseudo=$_SESSION['pseudo'];
 if (!isset($_SESSION['pseudo']))
   header('Location: index.php');

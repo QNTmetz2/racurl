@@ -7,15 +7,6 @@ R::debug (TRUE, 1);
 
 <?php
 
-function compteURL($pseudo) {
-	$bind1 = array($pseudo);
-	$m = R::findOne('membres', 'pseudo = ?', $bind1);
-	$id = $m->id;
-	$bind2 = array($id);
-	$nb = R::count('urls', 'auteur = ?', $bind2);
-	return $nb;
-}
-
 function afficheURLs($pseudo) {
 	$bind1 = array($pseudo);
 	$m = R::findOne('membres', 'pseudo = ?', $bind1);

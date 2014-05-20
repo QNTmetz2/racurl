@@ -34,7 +34,7 @@ else {
     data.addColumn('number', 'Slices');
     data.addRows([
 STAT;
-$urls=compteURL($pseudo));
+$urls=compteURL($pseudo);
 $bind1 = array($pseudo);
 $m = R::findOne('membres', 'pseudo = ?', $bind1);
 $id = $m->id;
